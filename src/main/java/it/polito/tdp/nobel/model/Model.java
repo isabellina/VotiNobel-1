@@ -55,6 +55,11 @@ public class Model {
 		
 		//sicuramente, crediti < m
 		if(L == esami.size()) {
+			/**
+			 * altro caso terminale se ho finito di esplorare l'albero di ricorsione e non ho più esami da inserire
+			 * es la somma dei crediti è 100 ma il tizio mi ha inserito nell'applicazione 180 so che sicuramente 
+			 * la somma dei  crediti sarà minore di m
+			 */
 			return ;
 		}
 		
@@ -64,7 +69,7 @@ public class Model {
 		
 		//provo ad aggiungerlo
 		parziale.add(esami.get(L));
-		cerca1(parziale, L+1,m);
+		cerca1(parziale, L+1,m);     //faccio partire la ricorsione aggiungo l'esame
 		parziale.remove(esami.get(L));
 		
 		//provo a non aggiungerlo
@@ -73,7 +78,13 @@ public class Model {
 		
 	}
 	
-	/* APPROCCIO 2 */
+	/* APPROCCIO 2 */  
+	
+	/**
+	 * non ci interessa l'ordine non ha senso provare tutto
+	 */
+	
+	
 	/* Complessità : N! */
 	private void cerca2(Set<Esame> parziale, int L, int m) {
 		//casi terminali
